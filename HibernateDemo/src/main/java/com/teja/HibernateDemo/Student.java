@@ -2,9 +2,13 @@ package com.teja.HibernateDemo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 // annotation to indicate this class is the one that is going to be a table
-@Entity
+
+@Entity()
+@Table(name="student_tble")// table name can be given like this too
 public class Student {
 	
 	// annotation to make PRIMARY KEY (PRIMARY KEY must me available)
