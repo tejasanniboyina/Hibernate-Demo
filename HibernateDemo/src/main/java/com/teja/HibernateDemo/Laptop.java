@@ -12,23 +12,31 @@ public class Laptop {
 	
 	@Id
 	private int lid;
-	private String lname;
+	private String brand;
 //	@ManyToOne
 //	private Student studentt
-	@ManyToMany
-	private List<Student> student =new ArrayList<Student>();
+//	@ManyToMany
+//	private List<Student> student =new ArrayList<Student>();
 	
+	@ManyToOne 
+	private Person person;
 	public int getLid() {
 		return lid;
+	}
+	public Person getPerson() {
+		return person;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 	public void setLid(int id) {
 		this.lid = id;
 	}
-	public String getLname() {
-		return lname;
+	public String getBrand() {
+		return brand;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 	
 //	public Student getStudent() {
@@ -38,12 +46,12 @@ public class Laptop {
 //		this.student = student;
 //	}
 	
-	public List<Student> getStudent() {
-		return student;
-	}
-	public void setStudent(List<Student> student) {
-		this.student = student;
-	}
+//	public List<Student> getStudent() {
+//		return student;
+//	}
+//	public void setStudent(List<Student> student) {
+//		this.student = student;
+//	}
 //	@Override
 //	public String toString() {
 //		return "Laptop [lid=" + lid + ", lname=" + lname + "]";
