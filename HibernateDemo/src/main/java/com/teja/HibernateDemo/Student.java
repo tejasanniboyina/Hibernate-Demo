@@ -17,10 +17,10 @@ public class Student {
 	@Id
 	private int rollNo;
 	
-	@Transient()  //excludes name as column of the table
+	//@Transient()  //excludes name as column of the table
 	private String name;
 	
-	@Column(name="student_marks")// to set the explicit column name
+	//@Column(name="student_marks")// to set the explicit column name
 	private int marks;
 	
 	public int getRollNo() {
@@ -40,6 +40,10 @@ public class Student {
 	}
 	public void setMarks(int marks) {
 		this.marks = marks;
+	}
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", name=" + name + ", marks=" + marks + "]";
 	}
 	
 	
