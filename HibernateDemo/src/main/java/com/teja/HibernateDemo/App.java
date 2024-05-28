@@ -13,23 +13,32 @@ public class App
 {
     public static void main( String[] args )
     {
-    		Student s1 = new Student();
+    	
+    	Laptop laptop = new Laptop();
+    	laptop.setLid(101);
+    	laptop.setLname("Dell");
+    	Student student = new Student();
     		
-    		StudentName sn = new StudentName();
-    		sn.setFname("Teja");
-    		sn.setLname("Sanniboyina");
-    		sn.setMname("Guna");
+//    		StudentName sn = new StudentName();
+//    		sn.setFname("Teja");
+//    		sn.setLname("Sanniboyina");
+//    		sn.setMname("Guna");
     		
-//    		s1.setRollNo(10);
-//    		s1.setName("Teja");
-//    		s1.setMarks(90);
+    		student.setRollNo(1);
+    		student.setName("Teja");
+    		student.setMarks(90);
+    		//student.setLaptop(laptop);
+    		student.getLaptop().add(laptop);
+        	laptop.getStudent().add(student);
+
     		
-    		s1.setRollNo(101);
-    		s1.setMarks(60);
-    		s1.setSname(sn);
+    		
+//    		s1.setRollNo(101);
+//    		s1.setMarks(60);
+//    		s1.setSname(sn);
     	
     		
-    		Configuration conf = new Configuration().configure().addAnnotatedClass(Student.class);// Configuration is a class
+    		Configuration conf = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);// Configuration is a class
     		
     		ServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
     		
@@ -43,10 +52,13 @@ public class App
     		
     	//	s1 = (Student)session.get(Student.class, 101);// to get the data from the database ,
     		//get method takes 2 parameters ( class name, primary key) and returns the Object of Object so typecast  it . 
-    				
-    		session.save(s1);
+    		session.save(laptop);
+    		session.save(student);
+    		
+
     				ts.commit();
     				
-    				System.out.println(s1);
+    				System.out.println(student);
+    				System.out.println(laptop);
     }
 }
